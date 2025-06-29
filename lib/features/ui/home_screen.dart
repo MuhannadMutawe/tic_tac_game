@@ -4,6 +4,7 @@ import 'package:tic_tac_game/features/ui/widget/play_bord.dart';
 import 'package:tic_tac_game/features/ui/widget/repeat_the_game_button.dart';
 import 'package:tic_tac_game/features/ui/widget/switch_turn_off_on_two_player.dart';
 
+import '../data/models/game_model.dart';
 import 'widget/it_is_player_turn.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _turn = 0;
   String _result = 'xxxxxxxxx ';
 
-  // Game game = Game();
+  final Game _game = Game();
 
   bool _isSwitched = false;
 
@@ -44,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 activePlayer: _activePlayer,
               ),
               PlayBord(
+                activePlayer: _activePlayer,
                 gameOver: _gameOver,
+                game: _game,
               ),
               DisplayResult(
                 result: _result,

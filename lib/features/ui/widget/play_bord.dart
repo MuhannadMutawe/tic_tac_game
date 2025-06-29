@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_game/features/data/models/game_model.dart';
 
 import '../../../core/theming/app_colors.dart';
 import '../../../core/widget/gradient_text.dart';
 
 class PlayBord extends StatelessWidget {
-  const PlayBord({super.key, required this.gameOver});
+  const PlayBord({super.key, required this.gameOver, required this.game, required this.activePlayer});
 
   final bool gameOver;
+  final Game game;
+  final String activePlayer;
 
   @override
   Widget build(BuildContext context) {
@@ -42,5 +45,9 @@ class PlayBord extends StatelessWidget {
         );
       },
     );
+  }
+
+  onTap(int index){
+    game.playGame(index, activePlayer);
   }
 }

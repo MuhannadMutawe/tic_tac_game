@@ -11,11 +11,15 @@ class RepeatTheGameButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Icon(Icons.replay),
-      label: Text('Repeat the game'),
-      style: ButtonStyle(
-          backgroundColor:
-          WidgetStateProperty.all(AppColors.splashColor)),
+      icon: Icon(Icons.replay,size: 32,),
+      label: Text('Repeat the game',style: Theme.of(context).textTheme.headlineSmall,),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+        backgroundColor: AppColors.splashColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+        ),
+      ),
     );
   }
 }

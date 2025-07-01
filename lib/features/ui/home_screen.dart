@@ -40,7 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       listen: false,
                     ).setActivePlayer('X');
-                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setResultGame('Start the Game 🏁.');
                     Player.playerX = [];
                     Player.playerO = [];
                     Game.movementCounter = 0;
@@ -49,10 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               ItIsPlayerTurn(),
-              PlayBord(
-                isTwoPlayer: _isSwitched,
-                game: _game,
-              ),
+              PlayBord(isTwoPlayer: _isSwitched, game: _game),
               DisplayResult(),
               RepeatTheGameButton(
                 onPressed: () {
@@ -61,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       listen: false,
                     ).setActivePlayer('X');
-                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setResultGame('Start the Game 🏁.');
                     Player.playerX = [];
                     Player.playerO = [];
                     Game.movementCounter = 0;

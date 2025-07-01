@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tic_tac_game/core/theming/app_colors.dart';
 import 'package:tic_tac_game/features/ui/home_screen.dart';
+
+import 'features/logic/change_active_player_provider.dart';
 
 class TicTacGame extends StatelessWidget {
   const TicTacGame({super.key});
@@ -9,13 +13,18 @@ class TicTacGame extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.primaryColor,
+        appBarTheme: AppBarTheme(backgroundColor: AppColors.primaryColor),
         brightness: Brightness.dark,
-        primarySwatch: Colors.blue ,
-        primaryColor: const Color(0xff00061a),
-        shadowColor: const Color(0xff001456),
-        splashColor: const Color(0xff4169e8)
+        primarySwatch: AppColors.primarySwatch,
+        primaryColor: AppColors.primaryColor,
+        shadowColor: AppColors.shadowColor,
+        splashColor: AppColors.splashColor,
       ),
-      home: HomeScreen(),
+      home: ChangeNotifierProvider(
+        create: (context) => ActivePlayer(),
+        child: HomeScreen(),
+      ),
     );
   }
 }

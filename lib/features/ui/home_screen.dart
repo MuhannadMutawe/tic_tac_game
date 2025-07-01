@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tic_tac_game/features/logic/change_active_player_provider.dart';
 import 'package:tic_tac_game/features/ui/widget/display_result.dart';
 import 'package:tic_tac_game/features/ui/widget/play_bord.dart';
 import 'package:tic_tac_game/features/ui/widget/repeat_the_game_button.dart';
 import 'package:tic_tac_game/features/ui/widget/switch_turn_off_on_two_player.dart';
 
-import '../data/models/game_model.dart';
+import '../data/game_model.dart';
+import '../data/player_model.dart';
 import 'widget/it_is_player_turn.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,13 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _activePlayer = 'X';
-  bool _gameOver = false;
-  int _turn = 0;
-  String _result = 'xxxxxxxxx ';
-
   final Game _game = Game();
-
   bool _isSwitched = false;
 
   @override
@@ -38,27 +35,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 onChanged: (value) {
                   setState(() {
                     _isSwitched = value;
+                    Game.movementCounter = 0;
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setActivePlayer('X');
+                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Player.playerX = [];
+                    Player.playerO = [];
+                    Game.movementCounter = 0;
+                    Game.gameOver = false;
                   });
                 },
               ),
-              ItIsPlayerTurn(
-                activePlayer: _activePlayer,
-              ),
+              ItIsPlayerTurn(),
               PlayBord(
-                activePlayer: _activePlayer,
-                gameOver: _gameOver,
+                isTwoPlayer: _isSwitched,
                 game: _game,
               ),
-              DisplayResult(
-                result: _result,
-              ),
+              DisplayResult(),
               RepeatTheGameButton(
                 onPressed: () {
                   setState(() {
-                    _activePlayer = 'X';
-                    _gameOver = false;
-                    _turn = 0;
-                    _result = 'xxxxxxxx';
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setActivePlayer('X');
+                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Player.playerX = [];
+                    Player.playerO = [];
+                    Game.movementCounter = 0;
+                    Game.gameOver = false;
                   });
                 },
               ),

@@ -33,7 +33,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "tic-tac-game production")
+                value = "tic-tac-game")
         }
     }
 

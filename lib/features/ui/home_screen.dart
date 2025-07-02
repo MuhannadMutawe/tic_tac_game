@@ -27,51 +27,49 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(left: 18, right: 18, top: 30, bottom: 30),
-          child: MediaQuery.of(context).orientation == Orientation.portrait? SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SwitchTurnOffOnTwoPlayer(
-                  isSwitched: _isSwitched,
-                  onChanged: (value) {
-                    setState(() {
-                      _isSwitched = value;
-                      Game.movementCounter = 0;
-                      Provider.of<ActivePlayer>(
-                        context,
-                        listen: false,
-                      ).setActivePlayer('X');
-                      Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
-                      Player.playerX = [];
-                      Player.playerO = [];
-                      Game.movementCounter = 0;
-                      Game.gameOver = false;
-                    });
-                  },
-                ),
-                ItIsPlayerTurn(),
-                PlayBord(
-                  isTwoPlayer: _isSwitched,
-                  game: _game,
-                ),
-                DisplayResult(),
-                RepeatTheGameButton(
-                  onPressed: () {
-                    setState(() {
-                      Provider.of<ActivePlayer>(
-                        context,
-                        listen: false,
-                      ).setActivePlayer('X');
-                      Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
-                      Player.playerX = [];
-                      Player.playerO = [];
-                      Game.movementCounter = 0;
-                      Game.gameOver = false;
-                    });
-                  },
-                ),
-              ],
-            ),
+          child: MediaQuery.of(context).orientation == Orientation.portrait? Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SwitchTurnOffOnTwoPlayer(
+                isSwitched: _isSwitched,
+                onChanged: (value) {
+                  setState(() {
+                    _isSwitched = value;
+                    Game.movementCounter = 0;
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setActivePlayer('X');
+                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Player.playerX = [];
+                    Player.playerO = [];
+                    Game.movementCounter = 0;
+                    Game.gameOver = false;
+                  });
+                },
+              ),
+              ItIsPlayerTurn(),
+              PlayBord(
+                isTwoPlayer: _isSwitched,
+                game: _game,
+              ),
+              DisplayResult(),
+              RepeatTheGameButton(
+                onPressed: () {
+                  setState(() {
+                    Provider.of<ActivePlayer>(
+                      context,
+                      listen: false,
+                    ).setActivePlayer('X');
+                    Provider.of<ActivePlayer>(context,listen: false).setResultGame('Start the Game 🏁.');
+                    Player.playerX = [];
+                    Player.playerO = [];
+                    Game.movementCounter = 0;
+                    Game.gameOver = false;
+                  });
+                },
+              ),
+            ],
           ) : Row(
             children: [
               Column(

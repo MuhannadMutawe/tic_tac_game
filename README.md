@@ -1,16 +1,36 @@
-# tic_tac_game
+# 🕹️ Tic Tac Toe Game - Flutter
 
-A new Flutter project.
+A simple and clean Tic Tac Toe (X-O) game built with **Flutter**. Play against a friend locally in this fun and lightweight application that demonstrates basic Flutter UI, state management, and logic handling.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![Group 7](https://github.com/user-attachments/assets/618c7c74-e8be-4f5b-b3d0-3f1587b4322d)
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🎮 Two-player local mode (Player X vs Player O)
+- ✨ Smooth animations and UI
+- 🧠 Game logic with win/tie detection
+- 🔄 Reset and restart functionality
+- 📱 Responsive layout for all screen sizes
+
+---
+
+## 📱 Screenshots
+
+| Splash Screen | Home screen | 
+|-------------|-------------|
+| ![Screenshot_20250701_164221](https://github.com/user-attachments/assets/696bf44b-44b5-4f85-b6c6-5b84ff4e1661) | ![Screenshot_20250701_164016](https://github.com/user-attachments/assets/78ad92b1-8460-4100-b669-3f6ef5bbc2a4) |
+
+---
+
+## 🧰 Technologies Used
+
+- **Flutter** (Stable version)
+- **Stateless & Stateful Widgets**
+- Basic flutter widget
+- Basic **State Management** (Provider)
+- **Dart** (Simple oop logic)
+
+
